@@ -7,16 +7,18 @@ open FSharpx.Collections
 open System
 
 module Day1 =
-
+    // Part 1. Using Fparsec and parser combinators
     let processLine strs = strs |> (fun s -> Seq.head s + Seq.last s) |> int
 
-    let pDigit: Parser<string, unit> =
+    let pDigit =
         %%(asciiLetter * qty.[0..]) -- +.digit -- (asciiLetter * qty.[0..]) -|> string
 
     let pLine =
         %% +.(pDigit * qty.[1..]) -- spaces -|> (ResizeArray.toSeq >> Seq.map string >> processLine)
 
     let part1 = runParser pLine >> Seq.sum
+
+    // Part 2. Good ol' recursion, and Active Patterns!
 
     let (|FromText|_|) tst (txt: string list) =
         match String.concat "" (Seq.truncate (String.length tst) txt) = tst with
