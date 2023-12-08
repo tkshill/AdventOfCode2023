@@ -6,7 +6,7 @@ open FParsec.Pipes
 open FSharpx.Collections
 open System
 
-module Day1 =
+module Day01 =
     // Part 1. Using Fparsec and parser combinators
     let processLine strs = strs |> (fun s -> Seq.head s + Seq.last s) |> int
 

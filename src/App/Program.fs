@@ -6,8 +6,8 @@ open Utility
 
 let getSolution input : string -> Solution option =
     function
-    | "1" -> Some(Day1.solution input)
-    // | "2" -> Some(Day02.solution input)
+    | "1" -> Some(Day01.solution input)
+    | "2" -> Some(Day02.solution input)
     // | "3" -> Some(Day03.solution input)
     // | "4" -> Some(Day04.solution input)
     // | "5" -> Some(Day05.solution input)
