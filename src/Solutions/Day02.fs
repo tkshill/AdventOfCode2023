@@ -13,6 +13,7 @@ module Day02 =
         | n, "blue" -> (red, green, blue + n)
         | n, "green" -> (red, green + n, blue)
         | n, "red" -> (red + n, green, blue)
+        
     let pColour = %% +.pint32 -- ' ' -- +.(%["blue"; "red"; "green"]) -%> auto
 
     let pColours = 
